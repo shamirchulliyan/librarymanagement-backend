@@ -19,6 +19,8 @@ class Book(models.Model):
         return self.BookName
 
 class Count(models.Model):
-    Book_Name = models.CharField(_('Book Name'),max_length=200)
-    Count = models.IntegerField(_('Count'))
+    Book_Name = models.CharField(_('Book Name' ), max_length = 200, primary_key=True)
+    Count = models.IntegerField(null=True)
     
+    def __str__(self):
+        return self.Book_Name
