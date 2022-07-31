@@ -19,5 +19,6 @@ class Book(models.Model):
         return self.BookName
 
 class Count(models.Model):
-    Book_Name = Book.objects.order_by().values('BookName').distinct()
+    Book_Name = models.CharField(max_length=200)
+    Count = models.IntegerField()
     
