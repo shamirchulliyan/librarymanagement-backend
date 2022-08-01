@@ -9,13 +9,13 @@ class Book(models.Model):
     BookNo = models.IntegerField(_("BOOK NUMBER"),primary_key = True)
     BookName = models.CharField(_('BOOK NAME'),max_length=200)
     AuthorName = models.CharField(_('NAME OF AUTHOR'),max_length=200, null = True)
-    PublisherName = models.CharField(_('NAME OF PUBLISHER'),max_length=200, null = True)
-    CostofBook = models.IntegerField(_('COST OF BOOK'),null = True)
-    DateofEntry = models.DateField(_('DATE OF ENTRY'),auto_now= True, null = True)
-    StatusofBook = models.CharField(_('STATUS OF BOOK'),max_length=50, null = True)
-    SourceofBook = models.CharField(_('SOURCE OF BOOK'),max_length=200, null = True)
-    RackNo = models.IntegerField(_('RACK NUMBER'),null = True)
-    Category = models.CharField(_('CATEGORY'),max_length = 200, null = True)
+    PublisherName = models.CharField(_('NAME OF PUBLISHER'),max_length=200, null = True, blank=True)
+    CostofBook = models.IntegerField(_('COST OF BOOK'),null = True, blank=True)
+    DateofEntry = models.DateField(_('DATE OF ENTRY'),auto_now= True, null = True, blank=True)
+    StatusofBook = models.CharField(_('STATUS OF BOOK'),max_length=50, null = True, blank=True)
+    SourceofBook = models.CharField(_('SOURCE OF BOOK'),max_length=200, null = True, blank=True)
+    RackNo = models.IntegerField(_('RACK NUMBER'),null = True, blank=True)
+    Category = models.CharField(_('CATEGORY'),max_length = 200, null = True, blank=True)
     
     def __str__(self):
         return self.BookName
