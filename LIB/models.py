@@ -8,10 +8,10 @@ from unicodedata import category
 class Book(models.Model):
     BookNo = models.IntegerField(_("BOOK NUMBER"),primary_key = True)
     BookName = models.CharField(_('BOOK NAME'),max_length=200)
-    AuthorName = models.CharField(_('NAME OF AUTHOR'),max_length=200, null = True)
+    AuthorName = models.CharField(_('NAME OF AUTHOR'),max_length=200, null = True, blank = True)
     PublisherName = models.CharField(_('NAME OF PUBLISHER'),max_length=200, null = True, blank=True)
-    CostofBook = models.IntegerField(_('COST OF BOOK'),null = True, blank=True)
-    DateofEntry = models.DateField(_('DATE OF ENTRY'),auto_now= True, null = True, blank=True)
+    CostofBook = models.FloatField(_('COST OF BOOK'),null = True, blank=True)
+    DateofEntry = models.DateField(_("DATE OF ENTRY"), blank = True, null = True)
     StatusofBook = models.CharField(_('STATUS OF BOOK'),max_length=50, null = True, blank=True)
     SourceofBook = models.CharField(_('SOURCE OF BOOK'),max_length=200, null = True, blank=True)
     RackNo = models.IntegerField(_('RACK NUMBER'),null = True, blank=True)
@@ -23,6 +23,7 @@ class Book(models.Model):
 class Count(models.Model):
     Book_Name = Book.objects.all().values_list('BookName').distinct()
     count = Book.objects.all().values_list('BookName').distinct().count()
+    
 
 class Issue(models.Model):
     CATEGORY = (
