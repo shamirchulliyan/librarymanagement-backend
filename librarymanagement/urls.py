@@ -19,7 +19,8 @@ from rest_framework import routers
 from LIB import views
 
 router = routers.DefaultRouter()
-router.register(r'LIBs', views.CountView, 'LIB')
+
+router.register(r'Counts', views.CountView, 'LIB')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

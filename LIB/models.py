@@ -21,8 +21,8 @@ class Book(models.Model):
         return self.BookName
 
 class Count(models.Model):
-    Book_Name = Book.objects.all().values_list('BookName').distinct()
-    count = Book.objects.all().values_list('BookName').distinct().count()
+    Book_Name = Book.objects.all().values('BookName').distinct()
+    count = Book.objects.all().values('BookName').distinct().count()
     
 
 class Issue(models.Model):
